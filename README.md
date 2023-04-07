@@ -28,10 +28,10 @@ This is a WIP privacy-friendly frontend for VirusTotal, a popular online virus s
 ## Contribute
 
 1. Fork it ( https://github.com/MugoSquero/LibreTotal/fork ).
-2. Create your feature branch (git checkout -b my-new-feature).
-3. Stage your files (git add .).
-4. Commit your changes (git commit -am 'Add some feature').
-5. Push to the branch (git push origin my-new-feature).
+2. Create your feature branch (`git checkout -b my-new-feature`).
+3. Stage your files (`git add .`).
+4. Commit your changes (`git commit -am 'Add some feature'`).
+5. Push to the branch (`git push origin my-new-feature`).
 6. Create a new pull request ( https://github.com/MugoSquero/LibreTotal/compare ).
 
 
