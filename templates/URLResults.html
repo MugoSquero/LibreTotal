@@ -1,0 +1,107 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+	<title>LibreTotal - VirusTotal Detection Report</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if css == 1 %}
+  <link rel="stylesheet" href="{% static 'classic_detection.css' %}">
+  {% else %}
+  <link rel="stylesheet" href="{% static 'detection.css' %}">
+  {% endif %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+    {{ stats_text_color|safe }}
+</head>
+<body>
+	<img src="{% static 'images/LibreTotal.png' %}" class="logo" alt="LibreTotal">
+    <div class="logospace"></div>
+
+	<h2>Categories</h2>
+    <div class="container">
+    <ul>
+        {% for key, value in categories.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+    </ul>
+    </div>
+
+    <h2>Last Analysis Statistics</h2>
+    <div class="container">
+    <div class="engines">
+        <div class="circle">
+          <div class="positives" clean=""> {{ last_analysis_stats.malicious }} </div>
+          <div class="total"> / {{ stats_antivirus_count }} </div>
+        </div>
+        <svg id="circularProgressbar" class="circle-progressbar" height="100" width="100" style="stroke-dashoffset: 0px; stroke-dasharray: 282.743px;">
+          <circle cx="50" cy="50" r="45" stroke-width="10" fill="transparent" stroke="{{ stats_color }}"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <h2>Community</h2>
+    <div class="container">
+    <ul>
+        {% for key, value in total_votes.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+        <li class="containerinside">Reputation: {{ reputation }}</li>
+    </ul>
+    </div>
+
+    <h2>Trackers</h2>
+    <div class="container">
+      <ul>
+        {% for key, value_list in trackers.items %}
+          <h4>{{ key }}</h4>
+          <div class="containerinside">
+            <ul>
+              {% for value_dict in value_list %}
+                <li>URL: {{ value_dict.url }}</li>
+                <li>Timestamp: {{ value_dict.timestamp }}</li>
+                <li>ID: {{ value_dict.id }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </ul>
+    </div>
+    
+
+    <h2>Last HTTP Response Headers</h2>
+    <div class="container">
+    <ul>
+        <li class="containerinside">Response Code: {{ last_http_response_code }}</li>
+        {% for key, value in last_http_response_headers.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+        <h4>More Info</h4>
+        <li class="containerinside">Title: {{ title }}</li>
+    </ul>
+    </div>
+
+    <h2>Outgoing Links</h2>
+    <div class="container">
+    <ul>
+        {% for value in outgoing_links %}
+            <li class="containerinside">{{ value }}<br></li>
+        {% endfor %}
+    </ul>
+    </div>
+
+    <br>
+    <h1>Last Analysis Results</h1>
+    <div class="results-grid">
+        {% for key, value in last_analysis_results.items %}
+            <div class="result-item">
+                <h2>{{ key }}</h2>
+                <ul>
+                    {% for k, v in value.items %}
+                        <li><span>{{ k }}:</span> {{ v }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

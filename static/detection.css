@@ -1,0 +1,285 @@
+body {
+    background-color: #0b0a11;
+    color: #f1f2f5;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+/* Set purple atmosphere with a gradient background */
+header, footer {
+    background: linear-gradient(to bottom, #6a0dad, #800080);
+    margin-top: 100px;
+    z-index: 0;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    max-width: 65%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #0e0e0e;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px #af7ac5;
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.container:hover {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 77, 166, 0.5), 0 0 25px rgba(255, 77, 166, 0.5), 0 0 30px rgba(255, 77, 166, 0.5), 0 0 35px rgba(255, 77, 166, 0.5), 0 0 40px rgba(255, 77, 166, 0.5);
+}
+
+.containerinside {
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, #4b0082, #800080);
+    transition: transform 0.2s ease-in-out;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 90%;
+    margin: 5px auto;
+    padding: 10px;
+    background-color: #940094;
+    border-radius: 10px;
+}
+
+.containerinside:hover {
+    text-shadow: 0 0 2px #fff;
+    border-radius: 9px;
+    transform: scale(1.05);
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.result-item {
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.result-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 77, 166, 0.5), 0 0 25px rgba(255, 77, 166, 0.5), 0 0 30px rgba(255, 77, 166, 0.5), 0 0 35px rgba(255, 77, 166, 0.5), 0 0 40px rgba(255, 77, 166, 0.5);
+}
+
+.result-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.result-item ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.result-item li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.result-item li span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+@media (max-width: 1200px) {
+    .results-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Center the main content area */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Style the headings */
+h2, h3, h4 {
+    color: rgb(255, 113, 255);
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+
+h1 {
+    color:  #f1f2f5;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 2em;
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+/* Style the paragraphs and lists */
+p, ul {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.centerelement {
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    left: 50%;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+li {
+    margin: 5px 0;
+}
+
+/* Style the signature details and last analysis results */
+ul li ul {
+    list-style-type: circle;
+    margin-left: 30px;
+}
+
+/* Style the code blocks */
+code {
+    display: block;
+    background-color: #333;
+    color: #f1f2f5;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+/* Add some spacing and a border to the signers details */
+h4 {
+    margin-top: 20px;
+}
+
+ul li ul li {
+    border: 1px solid #f1f2f5;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+/* Style the file values in Detect It Easy */
+ul li ul li ul {
+    list-style-type: square;
+    margin-left: 30px;
+}
+
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #0b0a11; /* use a light color for contrast */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #575758; /* use a darker color for the thumb */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #383738; /* use a darker color for the thumb on hover */
+    width: 12px;
+  }
+
+
+.logo {
+    display: block; /* make the image a block element */
+    margin: 0 auto; /* horizontally center the image */
+    position: absolute; /* position the image absolutely */
+    top: 0; /* position the image at the top of the viewport */
+    left: 50%; /* move the image to the center horizontally */
+    transform: translateX(-50%); /* center the image horizontally */
+    z-index: 1;
+    margin-top: 10px;
+}
+
+.logospace {
+    margin-top: 120px;
+}
+
+.engines {
+    border-radius: 50%;
+    background-color: #eceef4;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0px auto 20px;
+}
+
+.engines .circle {
+    box-shadow: rgb(102, 102, 102) 0px 5px 20px 0px;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 15px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.engines .circle-progressbar {
+    transform: rotate(-90deg);
+    position: relative;
+    top: -90px;
+    left: -10px;
+    stroke-linecap: round;
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.engines .circle .positives {
+    font-size: 35px;
+    line-height: 35px;
+    transition: color 0.2s ease 0s;
+}

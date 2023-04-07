@@ -1,0 +1,169 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+	<title>LibreTotal - VirusTotal Detection Report</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if css == 1 %}
+    <link rel="stylesheet" href="{% static 'classic_detection.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static 'detection.css' %}">
+    {% endif %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+    {{ stats_text_color|safe }}
+</head>
+<body>
+	<img src="{% static 'images/LibreTotal.png' %}" class="logo" alt="LibreTotal">
+    <div class="logospace"></div>
+	<h2>Type Description</h2>
+    <div class="container">
+    <ul>
+	<li class="containerinside">{{ type_description }}</li>
+    </ul>
+    </div>
+
+    <h2>Last Analysis Statistics</h2>
+    <div class="container">
+    <div class="engines">
+        <div class="circle">
+          <div class="positives" clean=""> {{ last_analysis_stats.malicious }} </div>
+          <div class="total"> / {{ stats_antivirus_count }} </div>
+        </div>
+        <svg id="circularProgressbar" class="circle-progressbar" height="100" width="100" style="stroke-dashoffset: 0px; stroke-dasharray: 282.743px;">
+          <circle cx="50" cy="50" r="45" stroke-width="10" fill="transparent" stroke="{{ stats_color }}"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <h2>Community
+    </h2>
+    <div class="container">
+    <ul>
+        {% for key, value in total_votes.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+        <li class="containerinside">Reputation: {{ reputation }}</li>
+    </ul>
+    </div>
+
+	<h2>Type Tags</h2>
+    <div class="container">
+	<ul>
+		{% for tag in type_tags %}
+		<li class="containerinside">{{ tag }}</li>
+		{% endfor %}
+	</ul>
+    </div>
+
+	<h2>Names</h2>
+    <div class="container">
+	<ul>
+		{% for name in names %}
+		<li class="containerinside">{{ name }}</li>
+		{% endfor %}
+	</ul>
+    </div>
+
+
+	<h2>Size</h2>
+    <div class="container">
+        <ul>
+        <li class="containerinside">{{ size }}</li>
+        </ul>
+        </div>
+
+	<h2>Detect It Easy</h2>
+
+    <div class="container">
+    <ul>
+    <h4>File Type</h4>
+    <li class="containerinside">{{ dietype }}</li>
+    <h4>File Values</h4>
+        {% for values in dievalues %}
+                {% for key, value in values.items %}
+                    <li class="containerinside">{{ key }}: {{ value }}<br></li>
+                {% endfor %}
+                <br>
+        {% endfor %}
+    </ul>
+    </div>
+
+	<h2>Signature Info</h2>
+
+    <div class="container">
+    <h3>Product</h3>
+    <ul>
+	<li class="containerinside">{{ product }}</li>
+    </ul>
+
+    <h3>Verified?</h3>
+    <ul>
+    <li class="containerinside">{{ verified }}</li>
+    </ul>
+
+    <h3>Description</h3>
+        <ul>
+        <li class="containerinside">{{ description }}</li>
+        </ul>
+
+    <h3>File Version</h3>
+        <ul>
+        <li class="containerinside">{{ file_version }}</li>
+        </ul>
+
+    <h3>Signing Date</h3>
+        <ul>
+        <li class="containerinside">{{ signing_date }}</li>
+        </ul>
+
+    <h3>Copyright</h3>
+        <ul>
+        <li class="containerinside">{{ copyright }}</li>
+        </ul>
+
+    <h3>Original Name</h3>
+        <ul>
+        <li class="containerinside">{{ original_name }}</li>
+        </ul>
+
+    <h3>Internal Name</h3>
+        <ul>
+        <li class="containerinside">{{ internal_name }}</li>
+        </ul>
+
+        <h3>Meaningful Name</h3>
+        <ul>
+        <li class="containerinside">{{ meaningful_name }}</li>
+        </ul>
+    </div>
+
+    <h3>Signers</h3>
+    <div class="container">
+    <ul>
+    <li class="containerinside">{{ signers }}</li>
+    <h4>Signers Details</h4>
+        {% for details in signers_details %}
+                {% for key, value in details.items %}
+                    <li class="containerinside">{{ key }}: {{ value }}<br></li>
+                {% endfor %}
+                <br>
+        {% endfor %}
+    </ul>
+    </div>
+
+    <br>
+    <h1>Last Analysis Results</h1>
+    <div class="results-grid">
+        {% for key, value in last_analysis_results.items %}
+            <div class="result-item">
+                <h2>{{ key }}</h2>
+                <ul>
+                    {% for k, v in value.items %}
+                        <li><span>{{ k }}:</span> {{ v }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

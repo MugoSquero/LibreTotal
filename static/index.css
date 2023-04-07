@@ -1,0 +1,200 @@
+body {
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0e0d13;
+  padding: 0px;
+  margin: 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  max-height: 100vh;
+  margin: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #af7ac5;
+  border-radius: 4px;
+  flex-grow: 1;
+  background-color: #1a1824;
+  color: #fff;
+  margin-bottom: 20px;
+  width: 70%;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #af7ac5;
+  border-radius: 4px;
+  margin-right: 10px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #1a1824;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "X";
+  font-size: 12px;
+  position: absolute;
+  left: 2px;
+  color: #fff;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(175, 122, 197, 0.4);
+}
+
+input[type="checkbox"]:hover::before {
+  content: "To reduce resource usage, you can check this box to use the classic theme without visualizations.";
+  position: absolute;
+  top: -30px;
+  left: -10px;
+  background-color: #af7ac5;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+input[type="submit"] {
+  padding: 17px 25px;
+  font-size: 16px;
+  background-color: #af7ac5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0px 0px 20px 0px #af7ac5;
+}
+
+input[type="submit"]:hover {
+  background-color: #8763a5;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #666;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #666;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #666;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #666;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 479px) {
+  form {
+    margin: 10px;
+  }
+
+  .logo-container {
+    margin-top: 10px;
+  }
+
+  input[type="text"] {
+    width: 90%;
+  }
+}
+
+/* Landscape mobile styles */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  form {
+    margin: 10px;
+  }
+
+  .logo-container {
+    margin-top: 10px;
+  }
+
+  input[type="text"] {
+    width: 90%;
+  }
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  form {
+    max-width: 800px;
+    margin: 20px;
+  }
+
+  .logo-container {
+    margin-top: 20px;
+  }
+
+  input[type="text"] {
+    width: 80%;
+  }
+}
+
+/* Landscape tablet styles */
+@media only screen and (min-width: 1025px) and (max-width: 1279px) {
+  form {
+    max-width: 1024px;
+    margin: 40px;
+  }
+
+  .logo-container {
+    margin-top: 40px;
+  }
+
+  input[type="text"] {
+    width: 70%;
+  }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1280px) {
+  form {
+    max-width: 1200px;
+    margin: 50px auto;
+  }
+
+  .logo-container {
+    margin-top: 50px;
+  }
+
+  input[type="text"] {
+    width: 60%;
+  }
+}

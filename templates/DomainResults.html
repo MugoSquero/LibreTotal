@@ -1,0 +1,141 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+	<title>LibreTotal - VirusTotal Detection Report</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if css == 1 %}
+    <link rel="stylesheet" href="{% static 'classic_detection.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static 'detection.css' %}">
+    {% endif %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+    {{ stats_text_color|safe }}
+</head>
+<body>
+	<img src="{% static 'images/LibreTotal.png' %}" class="logo" alt="LibreTotal">
+    <div class="logospace"></div>
+
+	<h2>Categories</h2>
+    <div class="container">
+    <ul>
+        {% for key, value in categories.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+    </ul>
+    </div>
+
+    <h2>Last Analysis Statistics</h2>
+    <div class="container">
+    <div class="engines">
+        <div class="circle">
+          <div class="positives" clean=""> {{ last_analysis_stats.malicious }} </div>
+          <div class="total"> / {{ stats_antivirus_count }} </div>
+        </div>
+        <svg id="circularProgressbar" class="circle-progressbar" height="100" width="100" style="stroke-dashoffset: 0px; stroke-dasharray: 282.743px;">
+          <circle cx="50" cy="50" r="45" stroke-width="10" fill="transparent" stroke="{{ stats_color }}"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <h2>Community</h2>
+    <div class="container">
+    <ul>
+        {% for key, value in total_votes.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+        <li class="containerinside">Reputation: {{ reputation }}</li>
+    </ul>
+    </div>
+
+    <h2>Popularity</h2>
+    <div class="container">
+    <ul>
+        {% for key, value in popularity_ranks.items %}
+            <li class="containerinside">{{ key }}: {{ value.rank }}<br></li>
+        {% endfor %}
+    </ul>
+    </div>
+
+	<h2>Last DNS Records</h2>
+    <div class="container">
+        <ul>
+            {% for value in last_dns_records %}
+            <br>
+                    <ul>
+                        {% for k, v in value.items %}
+                            <li class="containerinside">{{ k }}: {{ v }}</li>
+                        {% endfor %}
+                    </ul>
+            {% endfor %}
+        </ul>
+        </div>
+
+	<h2>Last HTTPS Certificate</h2>
+    <div class="container">
+    <ul>
+    <li class="containerinside">Date: {{ last_https_certificate_date }}</li>
+    <li class="containerinside">JARM Fingerprint: {{ jarm }}</li>
+    <h4>Issuer:</h4>
+        {% for key, value in last_https_certificate.issuer.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+    <h4>Validity:</h4>
+    <li class="containerinside">Not Before: {{ last_https_certificate.validity.not_before }}</li>
+    <li class="containerinside">Not After: {{ last_https_certificate.validity.not_after }}</li>
+    <h4>Subject:</h4>
+        {% for key, value in last_https_certificate.subject.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+    <h4>Subject Public Key Info:</h4>
+    <li class="containerinside">Algorithm: {{ last_https_certificate.public_key.algorithm }}</li>
+        {% for key, value in public_key.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+    <br>
+    <h4>X509v3 Extensions:</h4>
+    <li class="containerinside">Authority Key Identifier: {{ last_https_certificate.extensions.authority_key_identifier.keyid }}</li>
+    <li class="containerinside">Subject Key Identifier: {{ last_https_certificate.extensions.subject_key_identifier }}</li>
+    <h4>Subject Alternative Name:</h4>
+        {% for Nvalue in last_https_certificate.extensions.subject_alternative_name %}
+            <li class="containerinside">{{ Nvalue }}<br></li>
+        {% endfor %}
+    <h4>Key Information:</h4>
+    <li class="containerinside">Key Usage: {{ last_https_certificate.extensions.key_usage.0 }}</li>
+    <li class="containerinside">Extended Key Usage: {{ last_https_certificate.extensions.extended_key_usage }}</li>
+    <h4>CRL Distribution Points:</h4>
+        {% for value in last_https_certificate.extensions.crl_distribution_points %}
+            <li class="containerinside">{{ value }}<br></li>
+        {% endfor %}
+    <h4>Authority Information Access:</h4>
+        {% for key, value in last_https_certificate.extensions.ca_information_access.items %}
+            <li class="containerinside">{{ key }}: {{ value }}<br></li>
+        {% endfor %}
+    <li class="containerinside">Signature Algorithm: {{ last_https_certificate.cert_signature.signature_algorithm }}</li>
+    <li class="containerinside">Signature: {{ last_https_certificate.cert_signature.signature }}</li>
+    </ul>
+    </div>
+
+	<h2>Whois Lookup</h2>
+    <div class="container">
+	<ul>
+    <li>{{ whois }}</li>
+	</ul>
+    </div>
+    <br>
+    <h1>Last Analysis Results</h1>
+    <div class="results-grid">
+        {% for key, value in last_analysis_results.items %}
+            <div class="result-item">
+                <h2>{{ key }}</h2>
+                <ul>
+                    {% for k, v in value.items %}
+                        <li><span>{{ k }}:</span> {{ v }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

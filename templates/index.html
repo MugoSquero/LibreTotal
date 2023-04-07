@@ -1,0 +1,21 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+	<title>LibreTotal - VirusTotal Front-End</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+</head>
+<body>
+        <div class="logo-container">
+		    <img src="{% static 'images/LibreTotal.png' %}" alt="LibreTotal">
+        </div>
+		<form method="GET" action="/gui/search">
+			<input type="text" id="hashValue" name="query" placeholder="Search for file hashes, IP addresses, domains or URLs...">
+			<label for="classic">Classic Theme</label>
+			<input type="checkbox" id="classic" name="classic" value="">
+			<input type="submit" value="Search">
+		</form>		
+</body>
+</html>
