@@ -20,9 +20,10 @@ This is a WIP privacy-friendly frontend for VirusTotal, a popular online virus s
 ## Installation
 
 1. Clone this repository to your local machine using `git clone https://github.com/MugoSquero/LibreTotal`
-2. Install the required the dependencies using `pip install -r requirements.txt`
-3. Run the development server using `python manage.py runserver`
-4. The application should now be running at http://localhost:8000/
+2. Create a virtual environment and activate it using `python3 -m venv env` and then `source env/bin/activate`
+3. Install the required the dependencies using `pip install -r requirements.txt`
+4. Run the development server using `python manage.py runserver`
+5. The application should now be running at http://localhost:8000/
 
 ## Contribute
 
