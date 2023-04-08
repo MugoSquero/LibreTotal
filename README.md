@@ -38,4 +38,4 @@ This is a WIP privacy-friendly frontend for VirusTotal, a popular online virus s
 
 ## License
 
-This project is licensed under the GPL-3.0 License. See the `LICENSE` file for details.
+This project is licensed under the AGPL-3.0 License. See the `LICENSE` file for details.
