@@ -10,7 +10,7 @@ This is a WIP privacy-friendly frontend for VirusTotal, a popular online virus s
 - Supports searching for file hashes, IP addresses, domains or URLs
 - Displays detailed information from VirusTotal about the searched item
 - No JavaScript code, only HTML and CSS
-- It does not requires VirusTotal API key to search
+- There is no need for a VirusTotal API key to perform a search.
 
 
 ## Requirements
