@@ -15,10 +15,30 @@ body {
   height: 100vh;
 }
 
-.logo-container {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
+.header {
+  text-align: center;
+  padding: 20px;
+}
+
+.header-text {
+  font-size: 100px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  font-family: "Helvetica Rounded", Arial, sans-serif;
+}
+
+.header1 {
+  color: #f1f2f5;
+}
+
+.header2 {
+  color: #671aab;
+}
+
+.header-link {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 form {
@@ -29,7 +49,6 @@ form {
   width: 100%;
   max-width: 600px;
   max-height: 100vh;
-  margin: 20px;
 }
 
 input[type="text"] {
@@ -41,7 +60,7 @@ input[type="text"] {
   background-color: #1a1824;
   color: #fff;
   margin-bottom: 20px;
-  width: 70%;
+  width: 50%;
 }
 
 input[type="checkbox"] {
@@ -123,14 +142,6 @@ input[type="submit"]:hover {
 
 /* Mobile styles */
 @media only screen and (max-width: 479px) {
-  form {
-    margin: 10px;
-  }
-
-  .logo-container {
-    margin-top: 10px;
-  }
-
   input[type="text"] {
     width: 90%;
   }
@@ -138,14 +149,6 @@ input[type="submit"]:hover {
 
 /* Landscape mobile styles */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  form {
-    margin: 10px;
-  }
-
-  .logo-container {
-    margin-top: 10px;
-  }
-
   input[type="text"] {
     width: 90%;
   }
@@ -155,11 +158,6 @@ input[type="submit"]:hover {
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   form {
     max-width: 800px;
-    margin: 20px;
-  }
-
-  .logo-container {
-    margin-top: 20px;
   }
 
   input[type="text"] {
@@ -171,11 +169,6 @@ input[type="submit"]:hover {
 @media only screen and (min-width: 1025px) and (max-width: 1279px) {
   form {
     max-width: 1024px;
-    margin: 40px;
-  }
-
-  .logo-container {
-    margin-top: 40px;
   }
 
   input[type="text"] {
@@ -187,13 +180,7 @@ input[type="submit"]:hover {
 @media only screen and (min-width: 1280px) {
   form {
     max-width: 1200px;
-    margin: 50px auto;
   }
-
-  .logo-container {
-    margin-top: 50px;
-  }
-
   input[type="text"] {
     width: 60%;
   }

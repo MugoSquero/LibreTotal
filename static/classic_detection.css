@@ -26,8 +26,30 @@ header, footer {
     overflow: hidden;
 }
 
+.container:hover .hover-message {
+    display: none;
+}
+
+.hover-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.whois-content {
+    display: none;
+}
+
+.container:hover .whois-content {
+    display: block;
+}
+
 .containerinside {
-    align-items: center;
     text-align: center;
     background: linear-gradient(to top, #4b0082, #800080);
     transition: transform 0.2s ease-in-out;
@@ -52,7 +74,7 @@ header, footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #f2f2f2;
+    background-color: #0e0e0e;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -215,24 +237,35 @@ ul li ul li ul {
   }
 
 
-.logo {
-    display: block; /* make the image a block element */
-    margin: 0 auto; /* horizontally center the image */
-    position: absolute; /* position the image absolutely */
-    top: 0; /* position the image at the top of the viewport */
-    left: 50%; /* move the image to the center horizontally */
-    transform: translateX(-50%); /* center the image horizontally */
-    z-index: 1;
-    margin-top: 10px;
+.header {
+    text-align: center;
+    padding: 20px;
 }
 
-.logospace {
-    margin-top: 120px;
+.header-text {
+    font-size: 90px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    font-family: "Helvetica Rounded", Arial, sans-serif;
+}
+
+.header1 {
+    color: #f1f2f5;
+}
+
+.header2 {
+    color: #671aab;
+}
+
+.header-link {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .engines {
     border-radius: 50%;
-    background-color: #eceef4;
+    background-color: #0e0e0e;
     width: 100px;
     height: 100px;
     padding: 10px;
@@ -242,7 +275,7 @@ ul li ul li ul {
 
 .engines .circle {
     box-shadow: rgb(102, 102, 102) 0px 5px 20px 0px;
-    background-color: #fff;
+    background-color: #0e0e0e;
     border-radius: 50%;
     height: 100%;
     width: 100%;

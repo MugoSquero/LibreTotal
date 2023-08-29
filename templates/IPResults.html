@@ -11,10 +11,24 @@
     {% endif %}
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
     {{ stats_text_color|safe }}
+    <style>
+    @font-face {
+        font-family: "Helvetica Rounded";
+        src: url('{% static 'fonts/helvetica-rounded.otf' %}') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
 </head>
 <body>
-	<img src="{% static 'images/LibreTotal.png' %}" class="logo" alt="LibreTotal">
-    <div class="logospace"></div>
+    <div class="header">
+        <h1 class="header-text">
+            <a href="/" class="header-link">
+                <span class="header1">Libre</span><span class="header2">Total</span>
+            </a>
+        </h1>
+    </div>
+
 	<h2>Basic Properties</h2>
     <div class="container">
     <ul>
@@ -97,9 +111,12 @@
 
 	<h2>Whois Lookup</h2>
     <div class="container">
+    <div class="hover-message">Hover over to see the content.</div>
+    <div class="whois-content">
 	<ul>
-    <li>{{ whois }}</li>
+    <li>{{ whois|safe }}</li>
 	</ul>
+    </div>
     </div>
 
     <br>
