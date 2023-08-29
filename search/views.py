@@ -46,7 +46,7 @@ def searchIP(request, IPAddr):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x166x0',
+        'x-app-version': 'v1x209x0',
         'x-tool': 'vt-ui-main',
         'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
     }
@@ -61,6 +61,7 @@ def searchIP(request, IPAddr):
             except:
                 pass
             context = {
+                "search": IPAddr,
                 "regional_internet_registry": data.get('regional_internet_registry', 'No Information'),
                 "jarm": data.get('jarm', 'No Information'),
                 "network": data.get('network', 'No Information'),
@@ -112,7 +113,7 @@ def searchDomain(request, domain):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x166x0',
+        'x-app-version': 'v1x209x0',
         'x-tool': 'vt-ui-main',
         'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
     }
@@ -127,6 +128,7 @@ def searchDomain(request, domain):
             except:
                 pass
             context = {
+                "search": domain,
                 "last_https_certificate_date": data.get('last_https_certificate_date', 'No Information'),
                 "categories": data.get('categories', {'No Information'}),
                 "last_dns_records": data.get('last_dns_records', {'No Information'}),
@@ -156,8 +158,8 @@ def searchDomain(request, domain):
         return HTTPError()
 
 
-def searchURL(request, domain):
-    url = f'https://www.virustotal.com/ui/search?limit=50&relationships%5Bcomment%5D=author%2Citem&query={domain}'
+def searchURL(request, searchURI):
+    url = f'https://www.virustotal.com/ui/search?limit=50&relationships%5Bcomment%5D=author%2Citem&query={searchURI}'
     
     headers = {
         'accept': 'application/json',
@@ -175,7 +177,7 @@ def searchURL(request, domain):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x166x0',
+        'x-app-version': 'v1x209x0',
         'x-tool': 'vt-ui-main',
         'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
     }
@@ -185,6 +187,7 @@ def searchURL(request, domain):
         if response.status_code == 200 and not "{'data': []," in str(response.json()):
             data = response.json()['data'][0]['attributes']
             context = {
+                "search": searchURI,
                 "categories": data.get('categories', {'No Information'}),
                 "trackers": data.get('trackers', {'No Information'}),
                 "title": data.get('title', 'No Information'),
@@ -232,7 +235,7 @@ def searchHash(request, hashValue):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x166x0',
+        'x-app-version': 'v1x209x0',
         'x-tool': 'vt-ui-main',
         'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
     }
@@ -242,6 +245,7 @@ def searchHash(request, hashValue):
         if response.status_code == 200 and not "{'data': []," in str(response.json()):
             data = response.json()['data'][0]['attributes']
             context = {
+                "search": hashValue,
                 "type_description": data.get('type_description', 'No Information'),
                 "type_tags": data.get('type_tags', {'No Information'}),
                 "names": data.get('names', {'No Information'}),
@@ -300,7 +304,7 @@ def api(request):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x166x0',
+        'x-app-version': 'v1x209x0',
         'x-tool': 'vt-ui-main',
         'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
     }

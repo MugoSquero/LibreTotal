@@ -1,7 +1,7 @@
 {% load static %}<!DOCTYPE html>
 <html>
 <head>
-	<title>LibreTotal - VirusTotal Detection Report</title>
+	<title>{{ search }} - LibreTotal Detection Report</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if css == 1 %}
@@ -75,11 +75,9 @@
         <ul>
             {% for value in last_dns_records %}
             <br>
-                    <ul>
-                        {% for k, v in value.items %}
-                            <li class="containerinside">{{ k }}: {{ v }}</li>
-                        {% endfor %}
-                    </ul>
+                    {% for k, v in value.items %}
+                        <li class="containerinside">{{ k }}: {{ v }}</li>
+                    {% endfor %}
             {% endfor %}
         </ul>
         </div>
