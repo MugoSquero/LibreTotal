@@ -1,18 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-color: #2d353a #0b0a11;
+}
+
+html {
+  color-scheme: dark !important;
+}
+
 body {
-  color: #fff;
+  color: #f1f2f5;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #0e0d13;
-  padding: 0px;
-  margin: 0;
+  background-color: #0b0a11;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  padding: 0 20px;
+  text-align: center;
+  align-items: center;
 }
 
 .header {
@@ -60,7 +80,7 @@ input[type="text"] {
   background-color: #1a1824;
   color: #fff;
   margin-bottom: 20px;
-  width: 50%;
+  width: 100%;
 }
 
 input[type="checkbox"] {
@@ -159,10 +179,6 @@ input[type="submit"]:hover {
   form {
     max-width: 800px;
   }
-
-  input[type="text"] {
-    width: 80%;
-  }
 }
 
 /* Landscape tablet styles */
@@ -170,18 +186,11 @@ input[type="submit"]:hover {
   form {
     max-width: 1024px;
   }
-
-  input[type="text"] {
-    width: 70%;
-  }
 }
 
 /* Desktop styles */
 @media only screen and (min-width: 1280px) {
   form {
     max-width: 1200px;
-  }
-  input[type="text"] {
-    width: 60%;
   }
 }

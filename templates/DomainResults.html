@@ -9,6 +9,7 @@
     {% else %}
     <link rel="stylesheet" href="{% static 'detection.css' %}">
     {% endif %}
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
     {{ stats_text_color|safe }}
     <style>
@@ -150,6 +151,16 @@
             </div>
         {% endfor %}
     </div>
-    
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/MugoSquero/LibreTotal" target="_blank">Source Code</a>
+                    <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">License (AGPLv3)</a>
+                    <a href="{% static 'policy.txt' %}" target="_blank">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
