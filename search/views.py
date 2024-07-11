@@ -46,9 +46,9 @@ def searchIP(request, IPAddr):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x209x0',
+        'x-app-version': 'v1x277x1',
         'x-tool': 'vt-ui-main',
-        'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
+        'x-vt-anti-abuse-header': x_vt_anti_abuse_header()
     }
     
     response = requests.get(url, headers=headers)
@@ -113,9 +113,9 @@ def searchDomain(request, domain):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x209x0',
+        'x-app-version': 'v1x277x1',
         'x-tool': 'vt-ui-main',
-        'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
+        'x-vt-anti-abuse-header': x_vt_anti_abuse_header()
     }
     
     response = requests.get(url, headers=headers)
@@ -177,9 +177,9 @@ def searchURL(request, searchURI):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x209x0',
+        'x-app-version': 'v1x277x1',
         'x-tool': 'vt-ui-main',
-        'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
+        'x-vt-anti-abuse-header': x_vt_anti_abuse_header()
     }
     
     response = requests.get(url, headers=headers)
@@ -235,9 +235,9 @@ def searchHash(request, hashValue):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x209x0',
+        'x-app-version': 'v1x277x1',
         'x-tool': 'vt-ui-main',
-        'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
+        'x-vt-anti-abuse-header': x_vt_anti_abuse_header()
     }
     
     response = requests.get(url, headers=headers)
@@ -304,9 +304,9 @@ def api(request):
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        'x-app-version': 'v1x209x0',
+        'x-app-version': 'v1x277x1',
         'x-tool': 'vt-ui-main',
-        'x_vt_anti_abuse_header': x_vt_anti_abuse_header()
+        'x-vt-anti-abuse-header': x_vt_anti_abuse_header()
     }
 
     response = requests.get(url, headers=headers)
