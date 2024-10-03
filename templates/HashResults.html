@@ -1,21 +1,21 @@
-{% load static %}<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>{{ search }} - LibreTotal Detection Report</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if css == 1 %}
-    <link rel="stylesheet" href="{% static 'classic_detection.css' %}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='classic_detection.css') }}">
     {% else %}
-    <link rel="stylesheet" href="{% static 'detection.css' %}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='detection.css') }}">
     {% endif %}
-    <link rel="stylesheet" href="{% static 'footer.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
     {{ stats_text_color|safe }}
     <style>
     @font-face {
         font-family: "Helvetica Rounded";
-        src: url('{% static 'fonts/helvetica-rounded.otf' %}') format('opentype');
+        src: url('{{ url_for('static', filename='fonts/helvetica-rounded.otf') }}') format('opentype');
         font-weight: normal;
         font-style: normal;
     }
@@ -54,7 +54,7 @@
     </h2>
     <div class="container">
     <ul>
-        {% for key, value in total_votes.items %}
+        {% for key, value in total_votes.items() %}
             <li class="containerinside">{{ key }}: {{ value }}<br></li>
         {% endfor %}
         <li class="containerinside">Reputation: {{ reputation }}</li>
@@ -92,10 +92,10 @@
     <div class="container">
     <ul>
     <h4>File Type</h4>
-    <li class="containerinside">{{ dietype }}</li>
+    <li class="containerinside">{{ detectiteasy.filetype }}</li>
     <h4>File Values</h4>
-        {% for values in dievalues %}
-                {% for key, value in values.items %}
+        {% for values in detectiteasy_values %}
+                {% for key, value in values.items() %}
                     <li class="containerinside">{{ key }}: {{ value }}<br></li>
                 {% endfor %}
                 <br>
@@ -108,57 +108,57 @@
     <div class="container">
     <h3>Product</h3>
     <ul>
-	<li class="containerinside">{{ product }}</li>
+	<li class="containerinside">{{ signature_info.product }}</li>
     </ul>
 
     <h3>Verified?</h3>
     <ul>
-    <li class="containerinside">{{ verified }}</li>
+    <li class="containerinside">{{ signature_info.verified }}</li>
     </ul>
 
     <h3>Description</h3>
         <ul>
-        <li class="containerinside">{{ description }}</li>
+        <li class="containerinside">{{ signature_info.description }}</li>
         </ul>
 
     <h3>File Version</h3>
         <ul>
-        <li class="containerinside">{{ file_version }}</li>
+        <li class="containerinside">{{ signature_info.file_version }}</li>
         </ul>
 
     <h3>Signing Date</h3>
         <ul>
-        <li class="containerinside">{{ signing_date }}</li>
+        <li class="containerinside">{{ signature_info.signing_date }}</li>
         </ul>
 
     <h3>Copyright</h3>
         <ul>
-        <li class="containerinside">{{ copyright }}</li>
+        <li class="containerinside">{{ signature_info.copyright }}</li>
         </ul>
 
     <h3>Original Name</h3>
         <ul>
-        <li class="containerinside">{{ original_name }}</li>
+        <li class="containerinside">{{ signature_info.original_name }}</li>
         </ul>
 
     <h3>Internal Name</h3>
         <ul>
-        <li class="containerinside">{{ internal_name }}</li>
+        <li class="containerinside">{{ signature_info.internal_name }}</li>
         </ul>
 
         <h3>Meaningful Name</h3>
         <ul>
-        <li class="containerinside">{{ meaningful_name }}</li>
+        <li class="containerinside">{{ signature_info.meaningful_name }}</li>
         </ul>
     </div>
 
     <h3>Signers</h3>
     <div class="container">
     <ul>
-    <li class="containerinside">{{ signers }}</li>
+    <li class="containerinside">{{ signature_info.signers }}</li>
     <h4>Signers Details</h4>
-        {% for details in signers_details %}
-                {% for key, value in details.items %}
+        {% for details in signature_info.signers_details %}
+                {% for key, value in details.items() %}
                     <li class="containerinside">{{ key }}: {{ value }}<br></li>
                 {% endfor %}
                 <br>
@@ -169,11 +169,11 @@
     <br>
     <h1>Last Analysis Results</h1>
     <div class="results-grid">
-        {% for key, value in last_analysis_results.items %}
+        {% for key, value in last_analysis_results.items() %}
             <div class="result-item">
                 <h2>{{ key }}</h2>
                 <ul>
-                    {% for k, v in value.items %}
+                    {% for k, v in value.items() %}
                         <li><span>{{ k }}:</span> {{ v }}</li>
                     {% endfor %}
                 </ul>
@@ -186,7 +186,7 @@
                 <div class="footer-links">
                     <a href="https://github.com/MugoSquero/LibreTotal" target="_blank">Source Code</a>
                     <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">License (AGPLv3)</a>
-                    <a href="{% static 'policy.txt' %}" target="_blank">Privacy Policy</a>
+                    <a href="{{ url_for('static', filename='policy.txt') }}" target="_blank">Privacy Policy</a>
                 </div>
             </div>
         </div>
