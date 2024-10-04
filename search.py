@@ -50,10 +50,7 @@ def search_ip(classic_bool, IPAddr):
     try:
         if response.status_code == 200 and not "{'data': []," in str(response.json()):
             data = response.json()['data'][0]['attributes']
-            try:
-                public_key = data.get('last_https_certificate', {}).get('public_key', {'algorithm': 'unknown', 'unknown_algorithm': {'modulus': 'unknown', 'exponent': 'unknown', 'key_size': 'unknown'}})
-            except:
-                pass
+            public_key = data.get('last_https_certificate', {}).get('public_key', {'algorithm': 'unknown', 'unknown_algorithm': {'modulus': 'unknown', 'exponent': 'unknown', 'key_size': 'unknown'}})
             context = {
                 "search": IPAddr,
                 "regional_internet_registry": data.get('regional_internet_registry', 'No Information'),
@@ -67,7 +64,7 @@ def search_ip(classic_bool, IPAddr):
                 "whois": data.get('whois', 'No Information').replace("\n", "<br>"),
                 "reputation": data.get('reputation', 'No Information'),
                 "total_votes": data.get('total_votes', {'No Information'}),
-                "last_https_certificate": data.get('last_https_certificate', {'No Information'}),
+                "last_https_certificate": data.get('last_https_certificate', {'issuer': {'C': "unknown"}, 'validity': {'not_after': 'unknown', 'not_before': 'unknown'}, 'subject': {'CN': 'unknown'}, "extensions":{"key_usage":["digitalSignature","keyEncipherment","unknown"],"extended_key_usage":["serverAuth","unknown"],"CA":"unknown","subject_key_identifier":"unknown","authority_key_identifier":{"keyid":"unknown"},"ca_information_access":{"OCSP":"http://unknown","CA Issuers":"unknown"},"subject_alternative_name":["unknown"],"certificate_policies":["unknown","unknown","unknown"],"crl_distribution_points":["http://unknown.crl","unknown"],"OID":"unknown","unknown_field":"unknown"}, 'cert_signature': {'signature_algorithm': 'unknown', 'signature': 'unknown'}}),
                 "public_key": public_key,
                 "last_analysis_stats": data.get('last_analysis_stats', {'No Information'}),
                 "stats_antivirus_count": sum(data.get('last_analysis_stats', {'No Information'}).get(key, 0) for key in ('malicious', 'undetected', 'suspicious', 'harmless')),
