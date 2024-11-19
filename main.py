@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, render_template, make_response
+from flask import Flask, render_template, request, make_response
 import re
 import search
 
